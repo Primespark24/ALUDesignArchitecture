@@ -55,7 +55,15 @@ A template VHDL project has been created for you to use with your group.
 0. What ALU instructions does your group want to use (or need to use)?  In your group, decide what ALU operations you feel you will need in order to make your processor capable of having a useful instruction set. List your groups ALU instructions here:
 
      ```
-          - List the instructions here
+     We are designing our ALU to handle lots of different logic functions
+          - A and B
+          - A or B
+          - A xor B
+          - A NAND B 
+          - A NOR B
+          - A XNOR B 
+          - A + B
+          - A - B
 
      ```
 
