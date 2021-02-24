@@ -21,6 +21,8 @@ end alu_board_top;
 architecture alu_board_top of alu_board_top is
 
   -- TODO: These signals are use to wire the alu to the board level signals
+  signal a_top, b_top, y_top: std_logic_vector( 3 downto 0);
+  signal function_bits_top: std_logic_vector(2 downto 0);
 
 begin
 
@@ -29,12 +31,15 @@ begin
   -- to the board level signals LED and sw as shown. 
   -- remember we don't need a component statement above for the alu since
   -- we are using the work.alu syntax shown here.
-  alu_unit : entity work.alu generic map( N => 32 )
-  -- TODO: port map( ));
+  alu_unit : entity work.alu generic map( N => 4 )
+                port map(a => a_top, b => b_top,  y => y_top, f => function_bits_top );
 
 -----------Wire outputs/inputs from/to alu to the board---------------
 -- TODO wire up switches and LEDs
-
+a_top <= sw(15 downto 12);
+b_top <= sw(11 downto 8);
+led(3 downto 0) <= y_top;
+function_bits_top <= sw(2 downto 0);
 
 ----------------------Leave this untouched------------------------------
 -- Turn off the 7-segment LEDs

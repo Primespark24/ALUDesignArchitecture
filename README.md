@@ -55,22 +55,27 @@ A template VHDL project has been created for you to use with your group.
 0. What ALU instructions does your group want to use (or need to use)?  In your group, decide what ALU operations you feel you will need in order to make your processor capable of having a useful instruction set. List your groups ALU instructions here:
 
      ```
-     We are designing our ALU to handle lots of different logic functions
+     We are designing our ALU to handle lots of different logic functions:
           - A and B
           - A or B
           - A xor B
           - A NAND B 
           - A NOR B
           - A XNOR B 
-          - A + B
-          - A - B
+          - not a 
+          - not b
 
      ```
 
 1. Draw a hardware diagram for your group's ALU.  What components will you need?
+Hardware Diagram
+![Hardware Diagram](Hardware_Diagram.png "Hardware Diagram")
+(Hardware Diagram)
+For this implementation we will need 5 and gates, 1 nand gate, 3 or gates, 2 inverters, and 1 nor gate. 
 
 2. Design the alu.vhd file. A template / stub file has been created for you. Make sure to design VHDL that will implement your hardware design. 
-   
+   Aye Aye Captain
+
 3. Design the ./sim_testbench/sim_group_alu.vhd file. This should test your ALU and verify that it works.
    
 4. Check the setup_project.tcl file to make sure all the settings are correct for your group project before you run the ./gen.sh script. 
@@ -80,52 +85,67 @@ A template VHDL project has been created for you to use with your group.
 3.	How many resources of the FPGA  (e.g. slice LUTs, Slices, LUT as logic, Bonded IOBs) are used in your group's ALU design?	 To find this for your project, under the Implementation menu, click on "Open Synthezied Design". After this opens, from the main _Reports_ menu at the top of Vivado, select the "Report Utilization..." option. YOu will see four columns. Put your answers from each of these columns in the box below where indicated:
      ```
           Put your answers in the areas indicated...
-          Slice LUTs used (out of 20800 total): 
-          Slices used (out of 8150): 
-          LUT as Logic (out of 20800) : 
-          Bonded IOBs use (out of 106): 
+          Slice LUTs used (out of 20800 total): 4
+          Slices used (out of 8150): 2
+          LUT as Logic (out of 20800) : 4 
+          Bonded IOBs use (out of 106): 39
      ```				
 4.	What is the ratio of slices to instructions for your group's ALU? (slices / instruction)
      ```
-          replace this line with your answer.
+          2/8=1/4
      ```	
 
 5. How does your group's ALU compare to the two previous ALUs we looked at?
 
      ```
-          replace this line with your answer.
+          Our ratio is actually better than the two previous ALU's, because the textbook ALU ratio is 2/7, and the wikipedia ratio is 6/7. 
+          As well, the textbook ALU used 6 slices, whereas this ALU used 4 slices. 
+          The textbook ALU had 6 LUT as logic, whereas our ALU had 4 LUT as logic. 
      ```	
 
 6. Now, program the BASYS 3 board using the bitstream generated from the group's project. Set the switches as neccessary so that the ALU will compute. Verify that it is computing correctly according to the simulation. 	
      ```
-          -- Does it match your simulation? Why or Why not?
+     We cannot program the board, we have tried 3 different boards on 3 different computers with multiple different cables. :(
      ```	
 
 ### Put the VHDL CODE for the Group's Processor Here
-```vhdl
--------------------------------------------------
--- Module Name: alu - group designed 
+```-------------------------------------------------
+-- Module Name: alu - group designed
 -------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.STD_LOGIC_UNSIGNED.all;
 use IEEE.NUMERIC_STD.all;   
 
+--Defines our alu entity with a generic value of 32 bits used for inputs a and b
+--3 bit function vector corresponds to 8 different operations for our alu
+--Output y shares the same number of bits as the inputs a and b
 entity alu is
     generic ( N : integer := 32 );
-    port (  -- the alu connections to external circuitry:
-      -- TODO - Design your groups ALU inputs and outputs!
-    );-- operation result
+    port ( a, b : in STD_LOGIC_VECTOR(N-1 downto 0);
+      f : in STD_LOGIC_VECTOR(2 downto 0);
+      Y : out STD_LOGIC_VECTOR(N-1 downto 0));
 end alu;
 
-architecture behavioral of alu is
-
-
--- TODO - Design your group's ALU
-
-
-
-end behavioral;
+--Behavioral architecture defining implementation of our ALU
+architecture Behavioral of alu is
+begin 
+  --Process runs with our two inputs, the function vector, and the output
+    process (a, b, f)
+    begin
+      case f(2 downto 0) is 
+        when "000" => Y <= a and b;
+        when "001" => Y <= a or b;
+        when "010" => Y <= a nor b;
+        when "011" => Y <= a nand b;
+        when "100" => Y <= a xor b;
+        when "101" => Y <= a xnor b;
+        when "110" => Y <= not a;
+        when "111" => Y <= not b;
+        when others => Y <= (others => 'X');
+      end case;
+    end process;
+end Behavioral;
 ```
 
 ### Mini ALU Presentations to the Class
