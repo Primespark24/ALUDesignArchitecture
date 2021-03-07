@@ -16,8 +16,8 @@ Please complete MIPS_1-1 through MIPS_1-3 before starting as a group on MIPS_1-4
 | Total                              | 47    | 50 pts  |
 
 ### Feedback
-* Please make sure to get the projects working on the board as well as in simulation.
-* Your ALU was very simple, this would be interesting if you take this ALU and actually make a processor using it. You would have to have a lot of "micro-code" in order to be able to do addition, subtraction, multiplication. This would be a good learning experience in the long run. If you make this ALU into a functioning processor that can do addition, multiplication, etc. without adding those operation into the ALU (or elsewhere in the processor) this would be interesting and challenging.
+* -1.5 pts Please make sure to get the projects working on the board as well as in simulation.
+* -1.5 pts Your ALU was very simple, this would be interesting if you take this ALU and actually make a processor using it. You would have to have a lot of "micro-code" in order to be able to do addition, subtraction, multiplication. This would be a good learning experience in the long run. If you make this ALU into a functioning processor that can do addition, multiplication, etc. without adding those operation into the ALU (or elsewhere in the processor) this would be interesting and challenging.
 
 NOTE: MIPS_1-4 will be graded separately and will be worth 50 points as well. 
 
