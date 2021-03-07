@@ -10,10 +10,14 @@ Please complete MIPS_1-1 through MIPS_1-3 before starting as a group on MIPS_1-4
 ### Grade Break Down
 | Part                               |   | Points  |
 |------------------------------------|---|---------|
-| MIPS_1-4 a - Group Designed ALU    |   | 15 pts  |   
-| MIPS_1-4 b - Answers to Questions  |   | 15 pts  | 
-| MIPS_1-4 c - Mini Presentation     |   | 20 pts  |    
-| Total                              |   | 50 pts  |
+| MIPS_1-4 a - Group Designed ALU    | 13.5  | 15 pts  |   
+| MIPS_1-4 b - Answers to Questions  | 15    | 15 pts  | 
+| MIPS_1-4 c - Mini Presentation     | 18.5  | 20 pts  |    
+| Total                              | 47    | 50 pts  |
+
+### Feedback
+* Please make sure to get the projects working on the board as well as in simulation.
+* Your ALU was very simple, this would be interesting if you take this ALU and actually make a processor using it. You would have to have a lot of "micro-code" in order to be able to do addition, subtraction, multiplication. This would be a good learning experience in the long run. If you make this ALU into a functioning processor that can do addition, multiplication, etc. without adding those operation into the ALU (or elsewhere in the processor) this would be interesting and challenging.
 
 NOTE: MIPS_1-4 will be graded separately and will be worth 50 points as well. 
 
@@ -74,7 +78,10 @@ Hardware Diagram
 For this implementation we will need 5 and gates, 1 nand gate, 3 or gates, 2 inverters, and 1 nor gate. 
 
 2. Design the alu.vhd file. A template / stub file has been created for you. Make sure to design VHDL that will implement your hardware design. 
-   Aye Aye Captain
+   Aye Aye Captain  
+   ```
+   Yup.. this was was very easy for the ALU you chose. What will be harder will be to program the processor that uses your ALU...
+   ``` 
 
 3. Design the ./sim_testbench/sim_group_alu.vhd file. This should test your ALU and verify that it works.
    
@@ -107,6 +114,14 @@ For this implementation we will need 5 and gates, 1 nand gate, 3 or gates, 2 inv
      ```
      We cannot program the board, we have tried 3 different boards on 3 different computers with multiple different cables. :(
      ```	
+
+     Kent's Feeback:
+     ```
+     Sorry you could not program the board. It most likely was bad cables. Make sure to try a cable that someone has successfully use immediately before you try it. i.e. check with me when I come to class and try the cable I bring with me.
+
+     (-1.5 pts) Make sure you get this working next time. 
+     ```
+
 
 ### Put the VHDL CODE for the Group's Processor Here
 ```-------------------------------------------------
